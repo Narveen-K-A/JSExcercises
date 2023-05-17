@@ -1,0 +1,28 @@
+const a = { Parent: { Student: { Name: "Virat", Age: 24, Rollno: 34, marks: [ { English : 85 }, { Science: 75 } ] } , MobileNos: [ "1234567890", "9087654321" ] } };
+/* const b = a;
+const b = {...a};
+const b = Object.assign({}, a.Parent.Student.Name);
+console.log(a);
+console.log(b.Parent); */
+const b = JSON.parse(JSON.stringify(a)); 
+b.Parent.Student.Name = "Narveen K A";
+b.Parent.Student.Age = 23;
+b.Parent.Student.Rollno = 7;
+b.Parent.Student.marks[0].English = 90;
+b.Parent.Student.marks[1].Science = 80;
+b.Parent.MobileNos[0] = "9633281961";
+b.Parent.MobileNos[1] = "9061364549";
+console.log(a.Parent.Student.Name);
+console.log(b.Parent.Student.Name);
+console.log(a.Parent.Student.Age);
+console.log(b.Parent.Student.Age);
+console.log(a.Parent.Student.Rollno);
+console.log(b.Parent.Student.Rollno);
+console.log(a.Parent.Student.marks[0].English);
+console.log(b.Parent.Student.marks[0].English);
+console.log(a.Parent.Student.marks[1].Science);
+console.log(b.Parent.Student.marks[1].Science);
+console.log(a.Parent.MobileNos[0]);
+console.log(b.Parent.MobileNos[0]);
+console.log(a.Parent.MobileNos[1]);
+console.log(b.Parent.MobileNos[1]);

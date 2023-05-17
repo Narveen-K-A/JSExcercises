@@ -10,16 +10,26 @@ data.forEach(function(index){
     }
 });
 
-data.forEach(function (o) {
-    Object.keys(o).forEach(function (key) {
-        o[key] = typeof o[key] === 'string' ? o[key].trim() : o[key];
-    });
-});
+for(var i=0; i<data.length; i++){
+    var arr = data[i];
+    arr["Name"] = (arr["firstname"] + arr["lastname"]).trim();
+    console.log("NAME:"+arr["Name"]);
 
-console.log(data);
+    arr["PhoneNo"] = (arr["phone"]).slice(0,10);
+    console.log("PHONE NUMBER:"+arr["PhoneNo"]);
 
-/* for (let i = 0; i < data.length; i++) {
-    let object1 = data[i].trim();
-    console.log(object1);
-    console.log(data[i]);
-} */
+    if((arr["phone"]).length < 10){
+        console.log(arr["phone"].padStart(10, '0'))
+    }
+    if((arr["age"]>=150)){
+        arr["age"] = arr["age"].toString().replace(arr["age"],"NA");
+        console.log("Age:",arr["age"]);
+    }
+    else{
+        console.log("Age:",arr["age"]);
+    }
+
+    arr["id"] = arr["id"].slice(3).padStart(arr["id"].length,'*').trim();
+    console.log("Id:",arr["id"]);
+}
+
